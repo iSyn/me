@@ -1,1 +1,2 @@
-A very simple boilerplate
+Hey that's me. (HTML + SCSS)
+![gif](./me.gif)

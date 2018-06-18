@@ -1,24 +1,31 @@
 window.addEventListener('DOMContentLoaded', () => {
-    console.log('loaded')
 
-    let expressions = [
-        'wiggle eyebrows',
-        'shocked',
-        'curious',
-        'angry'
-    ]
-
-    let eyebrows = document.querySelectorAll('.eyebrow')
-    let eyelids = document.querySelectorAll('.eyelid')
-    let mouth = document.querySelector('.mouth')
-    let head = document.querySelector('.head')
-    let ears = document.querySelectorAll('.ear')
-    let neck = document.querySelector('.neck')
-
-    setInterval(() => {
+    let count = 0
+    let randomExpression = () => {
+    
+        let expressions = [
+            'shocked',
+            'wiggle eyebrows',
+            'angry',
+            'curious'
+        ]
+    
+        let eyebrows = document.querySelectorAll('.eyebrow')
+        let eyelids = document.querySelectorAll('.eyelid')
+        let mouth = document.querySelector('.mouth')
+        let head = document.querySelector('.head')
+        let ears = document.querySelectorAll('.ear')
+        let neck = document.querySelector('.neck')
+    
         let num = Math.floor(Math.random() * expressions.length);
+    
         let selected = expressions[num]
-
+        if (count < expressions.length) {
+            selected = expressions[count]
+            count++
+        }
+    
+    
         if (selected === 'wiggle eyebrows') {
             eyebrows.forEach(eyebrow => eyebrow.classList.add('wiggle-eyebrows'))
         } else if (selected === 'shocked') {
@@ -38,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
             eyelids.forEach(eyelid => eyelid.classList.add('angry-eyelids'))
             neck.classList.add('angry-skin')
         }
-
+    
         setTimeout(() => {
             eyebrows.forEach(eyebrow => {
                 eyebrow.classList.remove('wiggle-eyebrows')
@@ -58,9 +65,16 @@ window.addEventListener('DOMContentLoaded', () => {
             head.classList.remove('angry-head')
             ears.forEach(ear => ear.classList.remove('angry-skin'))
             neck.classList.remove('angry-skin')
-
+    
         }, 5500)
+    
+    }
+    
+    setTimeout(() => {
+        randomExpression()
+    }, 100)
 
-
+    setInterval(() => {
+        randomExpression()
     }, 6.5 * 1000)
 })
