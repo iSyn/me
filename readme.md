@@ -1,3 +1,3 @@
-Hey that's me. (HTML + SCSS)
+Hey that's me.
 
 ![gif](./me.gif)
